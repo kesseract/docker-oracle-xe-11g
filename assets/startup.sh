@@ -9,6 +9,7 @@ cp "${TNSNAMES_ORA}.tmpl" "$TNSNAMES_ORA" &&
 sed -i "s/%hostname%/$HOSTNAME/g" "${TNSNAMES_ORA}" &&
 sed -i "s/%port%/1521/g" "${TNSNAMES_ORA}" &&
 
+usermod -G root oracle
 service oracle-xe start
 
 export ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe
